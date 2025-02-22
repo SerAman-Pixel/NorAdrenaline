@@ -11,3 +11,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1
     - name: Build the solution
       run: msbuild NorAdrenaline.sln /p:Configuration=Release
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: |
+          /bin/Release/*.exe
+          /bin/Release/**/*.dll
