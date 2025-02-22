@@ -1,0 +1,13 @@
+name: Build Project
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v1
+    - name: Build the solution
+      run: msbuild NorAdrenaline.sln /p:Configuration=Release
